@@ -1,0 +1,40 @@
+title: nionsl
+description: dadasdada
+languageId: 1
+
+
+version: '3'
+services:
+  mysql:
+    restart: always
+#    image: registry.saas.hand-china.com/tools/mysql:5.6
+    container_name: mysql_hand_test
+    build:
+      context: .
+      dockerfile: ./mysql/Dockerfile
+    ports:
+      - 3309:3306
+    environment:
+#      TZ: Asia/Shanghai
+      MYSQL_ROOT_PASSWORD: root
+    command:
+      --character-set-server=utf8mb4
+      --collation-server=utf8mb4_general_ci
+      --explicit_defaults_for_timestamp=true
+      --lower_case_table_names=1
+      --max_allowed_packet=128M
+      --sql-mode="STRICT_TRANS_TABLES,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION,NO_ZERO_DATE,NO_ZERO_IN_DATE,ERROR_FOR_DIVISION_BY_ZERO"
+#    volumes:
+#      - mysql-data:/var/lib/mysql
+
+#  volumes:
+#    mysql-data:
+
+#  springappserver:
+#    restart: always
+#    container_name: springappserver
+#    build:
+#      context: .
+#      dockerfile: java/Dockerfile
+#    ports:
+#      - "2020:8080"

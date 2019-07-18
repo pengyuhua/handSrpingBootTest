@@ -1,0 +1,16 @@
+debug: true #DEBUG模式初始关闭（默认）
+
+#spring:
+#  profiles:
+#    active: dev # 直接指定环境信息
+#    active: @active.profile@ #通过mvn -P test/dev/prod 指定环境信息 active.profile为在maven profile中定义的值
+
+
+#
+server:
+  port: 2021
+
+logging:
+  level:
+    org.springframework.web: debug #web日志打印级别
+    org.springframework.boot.autoconfigure: error #关闭自动装配信息打印
